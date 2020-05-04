@@ -1,41 +1,35 @@
-import React from 'react';
-import { AppLoading, Font } from 'expo';
+import React, {Component} from 'react';
+import {AppLoading} from 'expo';
 
-import AppContainer from './app/components/screens/TaskFiller';
 import WelcomeScreen from './app/components/WelcomeScreen';
+import SettingsScreen from './app/components/screens/SettingsScreen';
+import TaskFiller from "./app/components/screens/TaskFiller";
 
-class App extends React.Component {
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import Main from './app/Main';
+
+const TabNavigator = createBottomTabNavigator({
+  Home: Main,
+  Settings: SettingsScreen,
+});
+
+const AppContainer = createAppContainer(TabNavigator);
+export default class App extends Component {
   state = {
-    fontLoaded: false,
+    splashScreenLoaded: false,
     screen: WelcomeScreen
-  }
-
-  componentWillMount() {
-    this._loadFonts();
   }
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        screen: AppContainer
+        screen: AppContainer,
+        splashScreenLoaded: true
       });
     }, 3000);
   }
 
-  _loadFonts = async () => {
-    await Font.loadAsync({
-      'customFont': require('./assets/fonts/grocery.ttf')
-    });
-
-    this.setState({ fontLoaded: true });
-  }
-
   render() {
-    if (!this.state.fontLoaded) {
-      return <AppLoading />;
-    }
     return <this.state.screen />;
   }
 }
-
-export default App;

@@ -17,8 +17,7 @@ const styles = StyleSheet.create({
       marginTop: 40
     },
     headerText: {
-      fontFamily: 'customFont',
-      fontSize: 60,
+      fontSize: 40,
       color: lightWhite
     }
 });

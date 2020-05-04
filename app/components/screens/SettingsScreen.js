@@ -1,12 +1,10 @@
 import React from 'react';
 import { Text, View, FlatList, InteractionManager } from 'react-native';
 import { Card, Button, Icon, Header, ListItem, Divider, CheckBox } from 'react-native-elements';
-import { LinearGradient, AppLoading } from 'expo';
+import { AppLoading } from 'expo';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { primaryGradientArray } from '../../utils/Colors';
-import List from '../List';
-
-import Spinner from '../Spinner';
 
 const Groceries = [{
     "key": "1",
@@ -150,7 +148,7 @@ const Groceries = [{
     "text": "Tuesdays's Groceries"
 }];
 
-class SettingsScreen extends React.Component {
+export default class SettingsScreen extends React.Component {
     state = {
         loaded: false
     }
@@ -208,5 +206,3 @@ class SettingsScreen extends React.Component {
         );
     }
 }
-
-export default SettingsScreen;

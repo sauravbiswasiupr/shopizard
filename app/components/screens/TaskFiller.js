@@ -1,19 +1,16 @@
 import React from 'react';
-import { LinearGradient } from 'expo';
-import { StyleSheet, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { View } from 'react-native';
 import { Divider } from 'react-native-elements';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
-
 
 
 import { primaryGradientArray } from '../../utils/Colors';
 import Input from '../Input';
 import Main from '../../Main';
 import Header from '../Header';
-import SettingsScreen from './SettingsScreen';
 
 const headerTitle = "Shopizard"
-class TaskFiller extends React.Component {
+export default class TaskFiller extends React.Component {
     onChangeText = () => {
 
     };
@@ -22,7 +19,7 @@ class TaskFiller extends React.Component {
 
     };
 
-    render() {
+    render = () => {
         const inputValue = "Name your task list";
         return (
             <LinearGradient colors={primaryGradientArray} style={{ flex: 1}}>
@@ -37,16 +34,8 @@ class TaskFiller extends React.Component {
                    <Main />
                 </View>
             </LinearGradient>
-        )
+        );
     }
 }
 
-const TabNavigator = createBottomTabNavigator({
-	Settings: SettingsScreen,
-	Home: TaskFiller,
-});
-
-const AppContainer = createAppContainer(TabNavigator);
-
-export default AppContainer;
 

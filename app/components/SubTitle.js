@@ -11,7 +11,7 @@ const SubTitle = ({ subtitle }) => (
 
 const styles = StyleSheet.create({
 	titleText: {
-		fontSize: 15,
+		fontSize: 40,
 		fontWeight: '100'
 	}
 });

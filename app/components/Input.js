@@ -6,7 +6,7 @@ const Input = ({ inputValue, onChangeText, onDoneAddItem }) => (
     style={styles.input}
     value={inputValue}
     onChangeText={onChangeText}
-    placeholder="Type here to add note."
+    placeholder="Add Item"
     placeholderTextColor={inputPlaceholder}
     multiline={true}
     autoCapitalize="sentences"
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingRight: 15,
     fontSize: 20,
-    color: 'white',
+    color: 'white'
   }
 });
 export default Input;

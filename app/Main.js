@@ -2,29 +2,20 @@ import React from 'react';
 import {
 	StyleSheet,
 	View,
-	StatusBar,
 	ActivityIndicator,
 	ScrollView,
 	AsyncStorage
 } from 'react-native';
-import { LinearGradient } from 'expo';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { LinearGradient } from 'expo-linear-gradient';
 import uuid from 'uuid/v1';
 
 import { primaryGradientArray } from './utils/Colors';
-import Header from './components/Header';
 import SubTitle from './components/SubTitle';
 import Input from './components/Input';
 import List from './components/List';
 import Button from './components/Button';
 
-import HomeScreen from './components/screens/HomeScreen';
-import SettingsScreen from './components/screens/SettingsScreen';
-
-
-const headerTitle = 'Shopizard';
-
-class Main extends React.Component {
+export default class Main extends React.Component {
 	state = {
 		inputValue: '',
 		loadingItems: false,
@@ -141,13 +132,13 @@ class Main extends React.Component {
 		const saveItem = AsyncStorage.setItem('Todos', JSON.stringify(newItem));
 	};
 
-	render() {
+	render = () => {
 		const { inputValue, loadingItems, allItems } = this.state;
 
 		return (
 			<LinearGradient colors={primaryGradientArray} style={styles.container}>
 				<View style={styles.inputContainer}>
-					<SubTitle subtitle={"Remember to buy"} />
+					<SubTitle subtitle={"Your Grocery List"} />
 					<Input
 						inputValue={inputValue}
 						onChangeText={this.newInputValue}
@@ -156,7 +147,7 @@ class Main extends React.Component {
 				</View>
 				<View style={styles.list}>
 					<View style={styles.column}>
-						<SubTitle subtitle={'Shopping List'} />
+						<SubTitle subtitle={'Shopping Cart'} />
 						<View style={styles.deleteAllButton}>
 							<Button deleteAllItems={this.deleteAllItems} />
 						</View>
@@ -214,5 +205,3 @@ const styles = StyleSheet.create({
 		marginRight: 40
 	}
 });
-
-export default Main;
